@@ -1,4 +1,4 @@
-package behring.softbulletcalculator.ui.theme
+package behring.nerperformancesimulator.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

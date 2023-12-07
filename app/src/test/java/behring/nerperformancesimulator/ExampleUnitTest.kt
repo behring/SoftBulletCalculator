@@ -1,4 +1,4 @@
-package behring.softbulletcalculator
+package behring.nerperformancesimulator
 
 import org.junit.Test
 
