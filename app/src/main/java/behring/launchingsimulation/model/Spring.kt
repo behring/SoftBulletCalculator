@@ -1,4 +1,4 @@
-package behring.nerperformancesimulator.model
+package behring.launchingsimulation.model
 
 data class Spring(
     val length: Float, // 弹簧长度(mm)

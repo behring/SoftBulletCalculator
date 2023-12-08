@@ -1,4 +1,4 @@
-package behring.nerperformancesimulator
+package behring.launchingsimulation
 
 import org.junit.Test
 

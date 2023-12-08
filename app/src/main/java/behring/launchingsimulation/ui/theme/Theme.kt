@@ -1,4 +1,4 @@
-package behring.nerperformancesimulator.ui.theme
+package behring.launchingsimulation.ui.theme
 
 import android.app.Activity
 import android.os.Build

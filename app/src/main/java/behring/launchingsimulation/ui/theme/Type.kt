@@ -1,4 +1,4 @@
-package behring.nerperformancesimulator.ui.theme
+package behring.launchingsimulation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
