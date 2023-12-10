@@ -3,6 +3,7 @@
 
 extern "C" {
 void launching_simulation_main(
+        JNIEnv *env,
         float cylinderLength,
         float cylinderInsideDiameter,
         float springLength,
@@ -13,6 +14,8 @@ void launching_simulation_main(
         float barrelLength,
         float barrelCaliber,
         float bulletMess);
+
+void send_result_to_ui(JNIEnv *env, const char *result);
 }
 
 #endif // LAUNCHINGSIMULATION_H

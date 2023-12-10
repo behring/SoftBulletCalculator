@@ -32,6 +32,7 @@ float bulletMessValue = static_cast<float>(bulletMess);
 
 // Call the C++ function
 launching_simulation_main(
+        env,
         cylinderLengthValue,
         cylinderInsideDiameterValue,
         springLengthValue,
@@ -43,14 +44,6 @@ launching_simulation_main(
         barrelCaliberValue,
         bulletMessValue);
 
-
-jclass kotlinClass = env->FindClass("behring/launchingsimulation/data/NativeLaunchingSimulationApi");
-jmethodID callbackMethod = env->GetStaticMethodID(kotlinClass, "callback", "(Ljava/lang/String;)V");
-jstring resultString = env->NewStringUTF("Hello from JNI!");
-env->CallStaticVoidMethod(kotlinClass, callbackMethod, resultString);
-env->DeleteLocalRef(resultString);
-
 __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, "Simulation completed");
-
 
 }

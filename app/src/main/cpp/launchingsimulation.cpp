@@ -1,8 +1,34 @@
+#include <jni.h>
 #include <iostream>
 #include <android/log.h>
 #include "launchingsimulation.h"
 #define LOG_TAG "LaunchingSimulationNativeCode"
+
+void send_result_to_ui(JNIEnv *env, const char *result) {
+    jclass kotlinClass = env->FindClass("behring/launchingsimulation/data/NativeLaunchingSimulationApi");
+    if (kotlinClass == nullptr) {
+        // Handle class not found error
+        return;
+    }
+
+    jmethodID callbackMethod = env->GetStaticMethodID(kotlinClass, "callback", "(Ljava/lang/String;)V");
+    if (callbackMethod == nullptr) {
+        // Handle method not found error
+        return;
+    }
+
+    jstring resultString = env->NewStringUTF(result);
+    if (resultString == nullptr) {
+        // Handle string creation error
+        return;
+    }
+
+    env->CallStaticVoidMethod(kotlinClass, callbackMethod, resultString);
+    env->DeleteLocalRef(resultString);
+}
+
 void launching_simulation_main(
+        JNIEnv *env,
         float cylinderLength,
         float cylinderInsideDiameter,
         float springLength,
@@ -29,5 +55,7 @@ void launching_simulation_main(
         // Your simulation logic goes here
         // ...
 
+    const char *simulationResult = "Hello from JNI with simulation result!";
+    send_result_to_ui(env, simulationResult);
         // No return value as specified
 }
